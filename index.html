@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+		<title>Elevators</title>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization"></script>
+    <script type="text/javascript" src="http://iop.io/js/vendor/d3.v3.min.js"></script>
+    <script type="text/javascript" src="http://iop.io/js/vendor/polymer/PointerEvents/pointerevents.js"></script>
+    <script type="text/javascript" src="http://iop.io/js/vendor/polymer/PointerGestures/pointergestures.js"></script>
+    <script type="text/javascript" src="http://iop.io/js/iopctrl.js"></script>
+		<script src="js/jquery.csv.min.js"></script>
+		<script src="js/elevator.min.js"></script>
+		<script src="js/highcharts.theme.js"></script>
+    <script src="js/maps.js"></script>
+    <script src="js/devicetype.js"></script>
+    <script src="js/status.js"></script>
+    <script src="js/distance.js"></script>
+    <script src="js/speed.js"></script>
+    <link rel="stylesheet" href="main.scss">
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Play:700,400' type='text/css'>
+    <script>
+      window.onload = function() {
+        var elevator = new Elevator({
+          element: document.querySelector('.elevator-button'),
+          duration: 8100,
+          mainAudio: './music/elevator.mp3',
+          endAudio: './music/ding.mp3'
+        });
+      }
+    </script>
+		<script>
+			$(document).ready(function(){
+        $.ajax({
+          type: "GET",
+          url: "https://raw.githubusercontent.com/datanews/elevators/master/elevators.csv",
+          success: function(data) {
+            var elevators = $.csv.toArrays(data).filter(function(arr){
+              return arr.length > 1;
+            });
+            heatmap(elevators);
+            markermap(elevators);
+            deviceType(elevators);
+            status(elevators);
+            distanceTravelled(elevators);
+            speed(elevators);
+          }
+        });
+        var h = window.innerHeight;
+        var w = window.innerWidth;
+        $('.slide').each(function(i, elem){
+          elem.style.minHeight = (h - 100) + "px";
+        });
+        $('#speedometer')[0].style.marginLeft = (w - 400)/2 + 40 + "px";
+        $('#averageSpeed').hover(
+          function(){
+            $('img#rocket')[0].style.right = "0px";
+          }, function() {
+            $('img#rocket')[0].style.right = "calc(100% - 100px)";
+          }
+        );
+			});
+		</script>
+	</head>
+	<body>
+    <div class="slide">
+      <p class="header">Every Single Elevator in NYC</p>
+      <p class="content">That's 76,088 markers... it's probably still loading<br /><i>(if you don't see a map, refresh the page)</i></p>
+      <div id="heatMap"></div>
+      <div id="markerMap"></div>
+    </div>
+    <div class="slide" id="deviceType" style="min-width: 310px; max-width: 600px;"></div>
+    <div class="slide" id="status" style="min-width: 310px; max-width: 600px;"></div>
+    <div class="slide" id="distanceTravelled"></div>
+    <div class="slide" id="averageSpeed">
+      <p class="header">Average Elevator Speed</p>
+      <p class="content"><i>(not all elevators had a recorded speed)</i></p>
+      <p class="header" id="speed"></p>
+      <span id="speedometer"></span>
+      <p class="header" id="moon"></p>
+      <img src="http://vignette3.wikia.nocookie.net/fantendo/images/8/8b/Mario_on_a_Rocket.png/revision/latest?cb=20120915115041" id="rocket">
+    </div>
+    <div class="slide"><p class='elevator-button'>Back to Top</p></div>
+	</body>
+</html>
