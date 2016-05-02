@@ -46,7 +46,7 @@ function markermap(elevators) {
 
     layer = new google.maps.FusionTablesLayer({
       map: map,
-      heatmap: { enabled: false },
+      heatmap: { enabled: true },
       query: {
         select: "col26",
         from: "12PsvIPMRRm3sX-Q5kjIaCOyLOkPggzXrVZY79WLM",
