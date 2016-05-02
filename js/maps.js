@@ -34,8 +34,8 @@ function markermap(elevators) {
       viewport.setAttribute('content', 'initial-scale=1.0, user-scalable=no');
     }
     var mapDiv = document.getElementById('markerMap');
-    mapDiv.style.width = '100%';
-    mapDiv.style.height = '550px';
+    mapDiv.style.width = isMobile ? '100%' : '1440px';
+    mapDiv.style.height = isMobile ? '100%' : '550px';
     var map = new google.maps.Map(mapDiv, {
       center: new google.maps.LatLng(40.719594271662174, -73.99682902874514),
       zoom: 11,
