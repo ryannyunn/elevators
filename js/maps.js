@@ -52,5 +52,6 @@ function markermap(elevators) {
     }
   }
   console.log("Second Random Hello!");
-  google.maps.event.addDomListener(window, 'load', initialize);
+  initialize();
+//  google.maps.event.addDomListener(window, 'load', initialize);
 }
