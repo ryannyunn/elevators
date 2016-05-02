@@ -14,7 +14,8 @@ function markermap(elevators) {
     var map = new google.maps.Map(mapDiv, {
       center: new google.maps.LatLng(40.710764984543964, -73.93229711914064),
       zoom: 11,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      scrollwheel: false,
+      streetViewControl: false
     });
 
     layer = new google.maps.FusionTablesLayer({
