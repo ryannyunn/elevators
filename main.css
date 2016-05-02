@@ -24,23 +24,11 @@ p {
   color: #555555;
 }
 
-/*
-#heatMap {
+#googft-mapCanvas {
   height: 550px;
-  width: 50%;
-  margin: 0px;
-  padding: 0px;
-  float: left;
-  margin-top: 25px;
-}
-*/
-
-#markerMap {
-  height: 550px;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   width: 100%;
-  margin-top: 25px;
 }
 
 .gm-style-cc {
