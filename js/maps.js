@@ -25,26 +25,35 @@ function heatmap(elevators) {
 }
 
 function markermap(elevators) {
-  var initialize = function() {
-    var mapOptions = {
-      zoom: 10,
-      center: new google.maps.LatLng(40.7293, -73.9906),
+  function initialize() {
+    google.maps.visualRefresh = true;
+    var isMobile = (navigator.userAgent.toLowerCase().indexOf('android') > -1) ||
+      (navigator.userAgent.match(/(iPod|iPhone|iPad|BlackBerry|Windows Phone|iemobile)/));
+    if (isMobile) {
+      var viewport = document.querySelector("meta[name=viewport]");
+      viewport.setAttribute('content', 'initial-scale=1.0, user-scalable=no');
+    }
+    var mapDiv = document.getElementById('markerMap');
+    mapDiv.style.width = isMobile ? '100%' : '500px';
+    mapDiv.style.height = isMobile ? '100%' : '300px';
+    var map = new google.maps.Map(mapDiv, {
+      center: new google.maps.LatLng(40.719594271662174, -73.99682902874514),
+      zoom: 11,
       scrollwheel: false,
       streetViewControl: false
-    };
-    var map = new google.maps.Map(document.getElementById('markerMap'), mapOptions);
-    var positions = [];
-    for (i = 1; i < elevators.length; i++) {
-      positions.push(new google.maps.LatLng(elevators[i][27], elevators[i][28]));
-    }
-    var markers = [];
-    for (position in positions) {
-      markers[position] = new google.maps.Marker({
-        position: positions[position],
-        map: map
-      });
-    }
+    });
     map.setOptions({styles: styles});
+
+    layer = new google.maps.FusionTablesLayer({
+      map: map,
+      heatmap: { enabled: false },
+      query: {
+        select: "col26",
+        from: "12PsvIPMRRm3sX-Q5kjIaCOyLOkPggzXrVZY79WLM",
+        where: ""
+      }
+    });
   }
+
   google.maps.event.addDomListener(window, 'load', initialize);
 }
