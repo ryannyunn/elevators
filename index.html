@@ -41,7 +41,6 @@
             var elevators = $.csv.toArrays(data).filter(function(arr){
               return arr.length > 1;
             });
-            heatmap(elevators);
             markermap(elevators);
             deviceType(elevators);
             status(elevators);
