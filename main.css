@@ -9,6 +9,18 @@ body {
   width: 100%;
 }
 
+a {
+  color: #004080;
+  text-decoration: none;
+}
+
+h1 {
+  margin-top: 150px;
+  font-size: 75px;
+  text-align: center;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+}
+
 p {
   text-align: center;
   font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;

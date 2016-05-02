@@ -53,6 +53,9 @@
         $('.slide').each(function(i, elem){
           elem.style.minHeight = (h - 100) + "px";
         });
+        $('.titleSlide').each(function(i, elem){
+          elem.style.minHeight = (h - 200) + "px";
+        });
         $('#speedometer')[0].style.marginLeft = (w - 400)/2 + 40 + "px";
         $('#averageSpeed').hover(
           function(){
@@ -65,6 +68,12 @@
 		</script>
 	</head>
 	<body>
+    <div class="titleSlide">
+      <h1>76,088</h1>
+      <p class="header">That's how many elevators help New Yorkers every day. Here's what that looks like.</p>
+      <p class="content"><br /><br /><br />By <a href="http://ryanyun.nyc" target="_blank">Ryan Yun</a></p>
+      <p class="content">Check out the source code <a href="https://github.com/ryannyunn/elevators" target="_blank">here</a></p>
+    </div>
     <div class="slide">
       <p class="header">Every Single Elevator in NYC</p>
       <p class="content">That's 76,088 markers... it's probably still loading</p>
