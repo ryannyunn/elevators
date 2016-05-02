@@ -37,10 +37,9 @@ p {
 
 #markerMap {
   height: 550px;
-  width: 100%;
   margin: 0px;
   padding: 0px;
-/*  float: right;*/
+  width: 100%;
   margin-top: 25px;
 }
 

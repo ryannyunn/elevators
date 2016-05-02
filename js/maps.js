@@ -34,15 +34,14 @@ function markermap(elevators) {
       viewport.setAttribute('content', 'initial-scale=1.0, user-scalable=no');
     }
     var mapDiv = document.getElementById('markerMap');
-    mapDiv.style.width = isMobile ? '100%' : '500px';
-    mapDiv.style.height = isMobile ? '100%' : '300px';
+    mapDiv.style.width = '100%';
+    mapDiv.style.height = '550px';
     var map = new google.maps.Map(mapDiv, {
-      center: new google.maps.LatLng(40.719594271662174, -73.99682902874514),
+      center: new google.maps.LatLng(40.710764984543964, -73.93229711914064),
       zoom: 11,
       scrollwheel: false,
       streetViewControl: false
     });
-    map.setOptions({styles: styles});
 
     layer = new google.maps.FusionTablesLayer({
       map: map,
@@ -51,8 +50,31 @@ function markermap(elevators) {
         select: "col26",
         from: "12PsvIPMRRm3sX-Q5kjIaCOyLOkPggzXrVZY79WLM",
         where: ""
+      },
+      options: {
+        styleId: 3,
+        templateId: 4
       }
     });
+
+    map.setOptions({styles: styles});
+    
+    if (isMobile) {
+      var legend = document.getElementById('googft-legend');
+      var legendOpenButton = document.getElementById('googft-legend-open');
+      var legendCloseButton = document.getElementById('googft-legend-close');
+      legend.style.display = 'none';
+      legendOpenButton.style.display = 'block';
+      legendCloseButton.style.display = 'block';
+      legendOpenButton.onclick = function() {
+        legend.style.display = 'block';
+        legendOpenButton.style.display = 'none';
+      }
+      legendCloseButton.onclick = function() {
+        legend.style.display = 'none';
+        legendOpenButton.style.display = 'block';
+      }
+    }
   }
 
   google.maps.event.addDomListener(window, 'load', initialize);
