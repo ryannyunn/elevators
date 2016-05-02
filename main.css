@@ -24,6 +24,7 @@ p {
   color: #555555;
 }
 
+/*
 #heatMap {
   height: 550px;
   width: 50%;
@@ -32,13 +33,14 @@ p {
   float: left;
   margin-top: 25px;
 }
+*/
 
 #markerMap {
   height: 550px;
-  width: 50%;
+  width: 100%;
   margin: 0px;
   padding: 0px;
-  float: right;
+/*  float: right;*/
   margin-top: 25px;
 }
 
