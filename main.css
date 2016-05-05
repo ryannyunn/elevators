@@ -112,3 +112,26 @@ p {
   position: absolute;
   right: calc(100% - 100px);
 }
+
+.arrow {
+  margin-top: 150px;
+}
+
+#aone {
+  font-size: 1.5em;
+}
+
+#atwo {
+  font-size: 1em;
+}
+
+#athree {
+  font-size: 0.65em;
+}
+
+.elevator-button {
+  width: 200px;
+  display: block;
+  margin: 50px auto;
+  cursor: pointer;
+}
