@@ -1,8 +1,8 @@
-# Elevators
+# 76,088 Elevators
 
 ## Description
 
-Everything you need to know about NYC elevators. I mean everything.
+A short infographic for everything you need to know about NYC elevators. I mean everything.
 
 ## Features
 
@@ -13,4 +13,4 @@ Everything you need to know about NYC elevators. I mean everything.
 
 ## Background
 
-This website was created as a final project for Cooper Union Techniques HTML & Programming Class (Spring 2016).
+This website was created as a final project for [Cooper Union](https://github.com/cooperunion) Techniques HTML & Programming Class (Spring 2016).

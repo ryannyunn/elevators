@@ -52,14 +52,6 @@ p {
   display: none;
 }
 
-.esb {
-  width: 15px;
-}
-
-.boeing {
-  width: 160px;
-}
-
 .unselectable {
   -moz-user-select: -moz-none;
   -khtml-user-select: none;

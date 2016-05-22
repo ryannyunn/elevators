@@ -21,6 +21,7 @@
     <script src="js/distance.js"></script>
     <script src="js/speed.js"></script>
     <script src="js/capacity.js"></script>
+    <script src="js/style.js"></script>
     <link rel="stylesheet" href="main.css">
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Play:700,400' type='text/css'>
     <script>
@@ -48,24 +49,9 @@
             distanceTravelled(elevators);
             speed(elevators);
             capacity(elevators);
+            style();
           }
         });
-        var h = window.innerHeight;
-        var w = window.innerWidth;
-        $('.slide').each(function(i, elem){
-          elem.style.minHeight = (h - 100) + "px";
-        });
-        $('.titleSlide').each(function(i, elem){
-          elem.style.minHeight = (h - 200) + "px";
-        });
-        $('#speedometer')[0].style.marginLeft = (w - 400)/2 + 40 + "px";
-        $('#averageSpeed').hover(
-          function(){
-            $('img#rocket')[0].style.right = "0px";
-          }, function() {
-            $('img#rocket')[0].style.right = "calc(100% - 100px)";
-          }
-        );
 			});
 		</script>
 	</head>
@@ -96,7 +82,7 @@
     <div class="slide" id="capacity"></div>
     <div>
       <p class="header">Now that you've seen it all, take the elevator back up...</p>
-      <p class="content">Click on the elevator</p>
+      <p class="content">Click on the elevator and enjoy the ride</p>
       <img class="elevator-button" src="http://4stay.com/assets/img/amenities-elevator.png">
     </div>
 	</body>
